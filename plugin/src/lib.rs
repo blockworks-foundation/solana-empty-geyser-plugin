@@ -38,10 +38,14 @@ impl GeyserPlugin for Plugin {
     ) -> agave_geyser_plugin_interface::geyser_plugin_interface::Result<()> {
         solana_logger::setup_with_default(&"info");
 
+        info!("plugin loaded (on_load)");
+
         Ok(())
     }
 
-    fn on_unload(&mut self) {}
+    fn on_unload(&mut self) {
+        info!("plugin unloaded (on_unload)");
+    }
 
     // true is actually the default
     fn account_data_notifications_enabled(&self) -> bool {
